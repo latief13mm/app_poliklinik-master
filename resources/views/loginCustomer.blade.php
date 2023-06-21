@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Airin Skin Clinik Admin | Login</title>
+    <title>Airin Skin Clinik Customer | Login</title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('Assets') }}/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,9 +31,9 @@
         <div class="animate form login_form">
           <section class="login_content">
             @include('tooltips/tooltips')
-            <form action="{{ url('login') }}" method="POST">
+            <form action="{{ url('loginCustomer') }}" method="POST">
               {{ csrf_field() }}
-              <h1>Login Form Admin</h1>
+              <h1>Login Form Customer</h1>
               <div>
                 <input type="text" class="form-control" name="username" placeholder="Username" />
               </div>
