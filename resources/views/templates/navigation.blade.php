@@ -8,7 +8,7 @@
     }
 ?>
             <div class="navbar nav_title" style="border: 0;">
-              <a href="{{ url('/') }}" class="site_title"><i class="fa fa-plus-square"></i> <span>Poliklinik Central</span></a>
+              <a href="{{ url('/') }}" class="site_title"><i class="fa fa-plus-square"></i> <span>Airin Skin Clinik Customer</span></a>
             </div>
 
             <div class="clearfix"></div>

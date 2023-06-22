@@ -31,25 +31,40 @@
         <div class="animate form login_form">
           <section class="login_content">
             @include('tooltips/tooltips')
-            <form action="{{ url('login') }}" method="POST">
+            <form action="{{ url('registerPost') }}" method="POST">
               {{ csrf_field() }}
-              <h1>Login Form Admin</h1>
+              <h1>Register Customer</h1>
               <div>
-                <input type="text" class="form-control" name="username" placeholder="Username" />
+                <input type="text" class="form-control" name="nama_pasien" placeholder="Nama Pasien" />
               </div>
               <div>
+                <input type="text" class="form-control" name="alamat_pasien" placeholder="Alamat" />
+              </div>
+              <div>
+                <input type="int" class="form-control" name="telp_pasien" placeholder="Nomor Telp" />
+              </div>
+              <br/>
+              <div>
+                <input type="date" class="form-control" name="tglLahir_pasien" placeholder="Tanggal Lahir" />
+              </div>
+              <br/>
+              <div>
+                <input type="text" class="form-control" name="jenisKel_pasien" placeholder="Jenis Kelamin" />
+              </div>
+              {{-- <div>
+                <input type="date" class="form-control" name="tglRegistrasi" placeholder="Username" />
+              </div> --}}
+              {{-- <div>
                 <input type="password" class="form-control" name="password" placeholder="Password" />
-              </div>
+              </div> --}}
               
               <div class="clearfix"></div>
 
-               <div>
-                 <input type="checkbox" name="remember" /> Remember Me
-                <input type="submit" value="Sign In" class="btn btn-default submit">
-                <input type="submit" value="Register" class="btn btn-default submit">
-               </div>
-              
-              
+              <div>
+                <input type="checkbox" name="remember" /> Remember Me
+               <input type="submit" value="Submit" class="btn btn-default submit">
+               <input type="submit" value="Cansel" class="btn btn-danger submit">
+              </div>
 
               <div class="clearfix"></div>
 

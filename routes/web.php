@@ -126,3 +126,10 @@ Route::group(['middleware' => 'auth'],function(){
 
 
 });
+
+
+Route::get('loginCustomer','loginCustomerController@showLoginCustomerForm');
+Route::get('register', 'registerCustomerController@showRegisterForm');
+Route::post('registerPost', 'registerCustomerController@registerPost');
+
+
