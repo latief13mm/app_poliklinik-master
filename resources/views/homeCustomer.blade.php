@@ -7,14 +7,14 @@
           <div class="left_col scroll-view">
             
             
-           @include('templates/navigation')            
+           @include('templatesCustomer/navigation')            
                   
 
         <!-- /top navigation -->
 
         <!-- page content -->
         <div class="right_col" role="main">
-          <center><h3>Halaman Admin</h3></center>  
+          <center><h3>Halaman Customer</h3></center>  
         </div>
         <!-- /page content -->
 
