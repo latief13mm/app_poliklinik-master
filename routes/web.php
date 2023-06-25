@@ -146,6 +146,9 @@ Route::group(['middleware' => 'auth'],function(){
 	//PROFILE Customer
 	Route::get('profile/jenis_treatment','controllerMasterCustomer@jenis_biaya');
 	Route::get('profile/jadwal_dokter','controllerMasterCustomer@jadwal_praktek');
+	Route::get('profile/profileCustomer','controllerMasterCustomer@profileCustomer');
+
+
 
 
 	Route::post('pendaftaranCustomer/simpan','transactionCustomerController@pendaftaran_simpan_customer');
