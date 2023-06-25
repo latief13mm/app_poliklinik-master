@@ -56,4 +56,11 @@ class controllerMasterCustomer extends Controller
     	return view('masterCustomer/jadwal_praktek')->with($data);
     }
 
+	public function profileCustomer(){
+    	// $data['listPemeriksaan'] = \App\modelTransaksi::getAllDataPemeriksaanJoin();
+    	return view('masterCustomer/profile');
+    }
+
+
+
 }
