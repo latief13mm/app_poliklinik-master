@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginCustomerController extends Controller
+class loginPasienController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ class LoginCustomerController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/homeCustomer';
+    protected $redirectTo = '/homePasien';
 
     /**
      * Create a new controller instance.
@@ -38,7 +38,7 @@ class LoginCustomerController extends Controller
     }
 
     public function showLoginCustomerForm(){
-        return view('loginCustomer');
+        return view('loginPasien');
     }
 
     public function username(){

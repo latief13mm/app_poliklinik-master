@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class RegisterCustomerController extends Controller
+class registerPasienController extends Controller
 {
         public function showRegisterForm(){
             return view('register');

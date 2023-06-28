@@ -8,7 +8,7 @@
     }
 ?>
             <div class="navbar nav_title" style="border: 0;">
-              <a href="{{ url('/homeCustomer') }}" class="site_title"><i class="fa fa-plus-square"></i> <span>Airin Skin Clinic</span></a>
+              <a href="{{ url('/homePasien') }}" class="site_title"><i class="fa fa-plus-square"></i> <span>Airin Skin Clinic</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -33,11 +33,11 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="{{ url('/homeCustomer') }}"><i class="fa fa-home"></i> Home </a>
+                  <li><a href="{{ url('/homePasien') }}"><i class="fa fa-home"></i> Home </a>
                   </li>
                   <li><a><i class="fa fa-user"></i> Profile <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ url('profile/profileCustomer') }}">Edit Profile</a></li>
+                      <li><a href="{{ url('profile/profilePasien') }}">Edit Profile</a></li>
                       <li><a href="{{ url('profile/jenis_treatment') }}">Jenis Treatment</a></li>
                       <li><a href="{{ url('profile/jadwal_dokter') }}">Jadwal Dokter</a></li>
                     </ul>

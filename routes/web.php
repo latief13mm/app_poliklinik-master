@@ -127,35 +127,35 @@ Route::group(['middleware' => 'auth'],function(){
 
 });
 
-	Route::get('/homeCustomer','homeCustomerController@index');
+	Route::get('homePasien','homePasienController@index');
 
-	Route::get('loginCustomer','loginCustomerController@showLoginCustomerForm');
-	Route::get('register', 'registerCustomerController@showRegisterForm');
-	Route::post('registerPost', 'registerCustomerController@registerPost');
+	Route::get('loginPasien','loginPasienController@showLoginCustomerForm');
+	Route::get('register', 'registerPasienController@showRegisterForm');
+	Route::post('registerPost', 'registerPasienController@registerPost');
 
 
-	Route::get('pendaftaranCustomer/cetaknoUrut/{id}','transactionCustomerController@noUrut_cetak_customer');
+	Route::get('pendaftaranPasien/cetaknoUrut/{id}','transactionPasienController@noUrut_cetak_pasien');
 
 	// BOOKING CUSTOMER
 	
-	Route::get('booking/bookingNow','controllerMasterCustomer@customer');
-	Route::get('booking/bookingDokter','transactionCustomerController@pendaftaran_customer');
-	Route::get('booking/resep','transactionCustomerController@resepCustomer');
+	Route::get('booking/bookingNow','controllerMasterPasien@pasien');
+	Route::get('booking/bookingDokter','transactionPasienController@pendaftaran_pasien');
+	Route::get('booking/resep','transactionPasienController@resepPasien');
 
 
 	//PROFILE Customer
-	Route::get('profile/jenis_treatment','controllerMasterCustomer@jenis_biaya');
-	Route::get('profile/jadwal_dokter','controllerMasterCustomer@jadwal_praktek');
-	Route::get('profile/profileCustomer','controllerMasterCustomer@profileCustomer');
+	Route::get('profile/jenis_treatment','controllerMasterPasien@jenis_biaya');
+	Route::get('profile/jadwal_dokter','controllerMasterPasien@jadwal_praktek');
+	Route::get('profile/profilePasien','controllerMasterPasien@profilePasien');
 
 
 
 
-	Route::post('pendaftaranCustomer/simpan','transactionCustomerController@pendaftaran_simpan_customer');
-	Route::get('ambilDataPendaftarCustomer','transactionCustomerController@cekPendaftarCustomer');
-	Route::get('pemeriksaanCustomer/cetak/{id}','transactionCustomerController@cetakPemeriksaanCustomer');
+	Route::post('pendaftaranPasien/simpan','transactionPasienController@pendaftaran_simpan_pasien');
+	Route::get('ambilDataPendaftarPesien','transactionPasienController@cekPendaftarPasien');
+	Route::get('pemeriksaanPasien/cetak/{id}','transactionPasienController@cetakPemeriksaanPasien');
 
 
-	Route::post('pasien/simpanDaftar','controllerMaster@pasienSimpanDaftar');
-	Route::get('pasien/cekDaftar/{id}','controllerMaster@cekPasienDaftar');
-	Route::get('pasien/daftarkanNow/{id}','controllerMaster@daftarkanPasienNow');
+	Route::post('pasien/simpanDaftar','controllerMasterPasien@pasienSimpanDaftar');
+	Route::get('pasien/cekDaftar/{id}','controllerMasterPasien@cekPasienDaftar');
+	Route::get('pasien/daftarkanNow/{id}','controllerMasterPasien@daftarkanPasienNow');

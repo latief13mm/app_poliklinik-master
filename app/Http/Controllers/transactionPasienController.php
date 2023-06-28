@@ -4,21 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class transactionCustomerController extends Controller
+class transactionPasienController extends Controller
 {
     //
-    public function noUrut_cetak_customer($id){
+    public function noUrut_cetak_pasien($id){
     	$data['dataNoUrut'] = \App\modelTransaksi::getAllDataPendaftaranPasienByID($id);
-    	return view('mockupCustomer/cetakNoUrut')->with($data);
+    	return view('mockupPasien/cetakNoUrut')->with($data);
     }
 
     
-    public function pendaftaran_customer(){
+    public function pendaftaran_pasien(){
     	$data['getDataPendaftaran'] = \App\modelTransaksi::getAllDataPendaftaranPasien();
-    	return view('transaksiCustomer/pendaftaran')->with($data);
+    	return view('transaksiPasien/pendaftaran')->with($data);
     }
 
-    public function pendaftaran_simpan_customer(Request $request){
+    public function pendaftaran_simpan_pasien(Request $request){
     	$input = $request->all();
 
     	$data = \App\modelTransaksi::cekJam($input['pilihDokter']);
@@ -51,12 +51,12 @@ class transactionCustomerController extends Controller
 
     }
 
-    public function cetakPemeriksaanCustomer($id){
+    public function cetakPemeriksaanPasien($id){
     	$data['KeteranganPemeriksaan'] = \App\modelTransaksi::getPemeriksaanByID($id);
-    	return view('mockupCustomer/keterangan_pemeriksaan')->with($data);
+    	return view('mockupPasien/keterangan_pemeriksaan')->with($data);
     }
 
-    public function cekPendaftarCustomer(){
+    public function cekPendaftarPasien(){
     	date_default_timezone_set('Asia/Jakarta');
     	$hari_ini = date('Y-m-d');
 		$listPendaftar = \App\modelTransaksi::getListPendaftarHariIni($hari_ini);
@@ -85,8 +85,8 @@ class transactionCustomerController extends Controller
 			}
     }
 
-    public function resepCustomer(){
+    public function resepPasien(){
     	$data['listPemeriksaan'] = \App\modelTransaksi::getAllDataPemeriksaanJoin();
-    	return view('transaksiCustomer/resep')->with($data);
+    	return view('transaksiPasien/resep')->with($data);
     }
 }

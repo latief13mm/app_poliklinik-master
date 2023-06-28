@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class controllerMasterCustomer extends Controller
+class controllerMasterPasien extends Controller
 {
     //
-    public function customer(){
+    public function pasien(){
     	$data['Listpasien'] = \App\modelMaster::getDataPasien();
-    	return view('masterCustomer/customer')->with($data);
+    	return view('masterPasien/pasien')->with($data);
     }
 
     public function pasienSimpanDaftar(Request $request){
@@ -48,17 +48,17 @@ class controllerMasterCustomer extends Controller
 
 	public function jenis_biaya(){
     	$data['Listjenisbiaya'] = \App\modelMaster::getListJenisBiaya();
-    	return view('masterCustomer/jenis_biaya')->with($data);
+    	return view('masterPasien/jenis_biaya')->with($data);
     }
 
 	public function jadwal_praktek(){
     	$data['Listjadwalpraktek'] = \App\modelMaster::getAllDataJadwal();
-    	return view('masterCustomer/jadwal_praktek')->with($data);
+    	return view('masterPasien/jadwal_praktek')->with($data);
     }
 
-	public function profileCustomer(){
+	public function profilePasien(){
     	// $data['listPemeriksaan'] = \App\modelTransaksi::getAllDataPemeriksaanJoin();
-    	return view('masterCustomer/profile');
+    	return view('masterPasien/profile');
     }
 
 

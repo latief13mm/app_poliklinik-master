@@ -31,7 +31,7 @@
         <div class="animate form login_form">
           <section class="login_content">
             @include('tooltips/tooltips')
-            <form action="{{ url('loginCustomer') }}" method="POST">
+            <form action="{{ url('loginPasien') }}" method="POST">
               {{ csrf_field() }}
               <h1>Login Form Customer</h1>
               <div>
