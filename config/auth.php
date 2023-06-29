@@ -80,7 +80,7 @@ return [
             'model' => App\User::class,
         ],
 
-        'pasien' => [
+        'pasiens' => [
             'driver' => 'eloquent',
             'model' => App\Pasien::class,
         ],

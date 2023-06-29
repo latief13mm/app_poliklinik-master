@@ -11,7 +11,7 @@ class Pasien extends Authenticatable
 
     protected $table = 'pasien';
     protected $guard = 'pasien';
-    public $primaryKey = 'noUser';
+    public $primaryKey = 'NoPasien';
 
     /**
      * The attributes that are mass assignable.

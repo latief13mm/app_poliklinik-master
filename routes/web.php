@@ -16,15 +16,25 @@
 
 // Route::auth();
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Auth::routes();
 
 Route::get('login/admin', 'Auth\LoginController@showLoginForm');
+Route::post('login/adminPost', 'Auth\LoginController@loginAdmin');
+Route::post('user/logout', 'Auth\LoginController@logout')->name('logout');
+
+
 Route::get('login/pasien', 'loginPasienController@showLoginPasienForm');
+Route::post('login/pasienPost', 'loginPasienController@loginPasien');
+Route::post('pasien/logout', 'loginPasienController@logout')->name('logout');
 
 
 Route::middleware(['auth:user'])->group(function () {
 
-	Route::get('/','homeController@index');
+	Route::get('home','homeController@index');
 	
 	Route::get('master/pasien','controllerMaster@pasien');
 	Route::post('pasien/simpan','controllerMaster@pasienSimpan');
@@ -137,6 +147,7 @@ Route::middleware(['auth:user'])->group(function () {
 });
 
 
+Route::middleware(['auth:pasien'])->group(function () {
 
 	Route::get('homePasien','homePasienController@index');
 
@@ -170,3 +181,5 @@ Route::middleware(['auth:user'])->group(function () {
 	Route::post('pasien/simpanDaftar','controllerMasterPasien@pasienSimpanDaftar');
 	Route::get('pasien/cekDaftar/{id}','controllerMasterPasien@cekPasienDaftar');
 	Route::get('pasien/daftarkanNow/{id}','controllerMasterPasien@daftarkanPasienNow');
+
+});

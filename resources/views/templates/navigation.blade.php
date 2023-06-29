@@ -138,7 +138,7 @@
                     <li><a href="#" data-toggle="modal" data-target=".settingModal"> Setting</a></li>
                     
                     <li>
-                      <form action="{{ url('logout') }}" method="POST">
+                      <form action="{{ url('user/logout') }}" method="POST">
                         {{ csrf_field() }}
                         <button type="submit" class="badge bg-blue pull-right"><i class="fa fa-sign-out pull-right"></i> Log Out</a></button>
                       </form>

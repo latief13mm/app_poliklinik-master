@@ -20,14 +20,14 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    // use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = 'home';
 
     /**
      * Create a new controller instance.
@@ -38,24 +38,39 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('guest:user')->except('logout');
-    }
-
-    public function showLoginForm(){
-        return view('interface/login');
+        $this->middleware('guest:pasien')->except('logout');
     }
 
     public function username(){
         return 'username';
     }
 
-    public function login(Request $request)
+    public function showLoginForm(){
+        return view('interface/login', ['url' => 'user']);
+    }
+
+  
+    public function loginAdmin(Request $request)
     {
 
         if (Auth::guard('user')->attempt(['username' => $request->username, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect()->intended('/');
+            return redirect()->intended('home');
         }
         return back()->withInput($request->only('username', 'remember'));
     }
+
+    public function logout(Request $request)
+    {
+
+    Auth::guard('user')->logout();
+
+    $request->session()->invalidate();
+
+    return redirect('login/admin');
+    
+    }
+
+
 
 }
