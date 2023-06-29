@@ -37,7 +37,7 @@ class loginPasienController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function showLoginCustomerForm(){
+    public function showLoginPasienForm(){
         return view('loginPasien');
     }
 

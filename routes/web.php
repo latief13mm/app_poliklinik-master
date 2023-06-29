@@ -11,9 +11,19 @@
 |
 */
 
-Route::auth();
+// Route::group(['middleware' => 'auth'],function(){
+// });
 
-Route::group(['middleware' => 'auth'],function(){
+// Route::auth();
+
+Auth::routes();
+
+Route::get('login/admin', 'Auth\LoginController@showLoginForm');
+Route::get('login/pasien', 'loginPasienController@showLoginPasienForm');
+
+
+Route::middleware(['auth:user'])->group(function () {
+
 	Route::get('/','homeController@index');
 	
 	Route::get('master/pasien','controllerMaster@pasien');
@@ -124,8 +134,9 @@ Route::group(['middleware' => 'auth'],function(){
 
 	Route::post('simpanAkun','homeController@simpanUser');
 
-
 });
+
+
 
 	Route::get('homePasien','homePasienController@index');
 

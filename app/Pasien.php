@@ -10,6 +10,7 @@ class Pasien extends Authenticatable
     use Notifiable;
 
     protected $table = 'pasien';
+    protected $guard = 'pasien';
     public $primaryKey = 'noUser';
 
     /**
@@ -18,7 +19,7 @@ class Pasien extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'password','typeUser'
+        'username', 'password'
     ];
 
     // public function getAuthPassword()
