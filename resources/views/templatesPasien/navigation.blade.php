@@ -168,7 +168,7 @@
                         <div class="modal-body">
                           
                           <p>
-                            Website APP ini dibuat untuk memenuhi tugas project minggu-an.<br/>
+                            Aplikasi ini di buat untuk memenuhi tugas akhir UPI YAI.<br/>
                             <ul>
                               <li>Poliklinik Lost in LaravelHURT : v0.1</li>
                             </ul>

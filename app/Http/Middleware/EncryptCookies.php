@@ -13,5 +13,7 @@ class EncryptCookies extends BaseEncrypter
      */
     protected $except = [
         //
+        'user_session',
+        'pasien_session',
     ];
 }
