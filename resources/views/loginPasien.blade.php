@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Airin Skin Clinik Customer | Login</title>
+    <title>Airin Skin Clinic Pasien | Login</title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('Assets') }}/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,9 +31,9 @@
         <div class="animate form login_form">
           <section class="login_content">
             @include('tooltips/tooltips')
-            <form action="{{ url('loginCustomer') }}" method="POST">
+            <form action="{{ url('login/pasienPost') }}" method="POST">
               {{ csrf_field() }}
-              <h1>Login Form Customer</h1>
+              <h1>Login Form Pasien</h1>
               <div>
                 <input type="text" class="form-control" name="username" placeholder="Username" />
               </div>
@@ -60,7 +60,7 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-plus-square"></i> Airin Skin Clinik</h1>
+                  <h1><i class="fa fa-plus-square"></i> Airin Skin Clinic</h1>
                   <p>©2023 All Rights Reserved. Airin Skin Clinik. Privacy and Terms</p>
                 </div>
               </div>

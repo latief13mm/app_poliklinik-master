@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class homeCustomerController extends Controller
+class homePasienController extends Controller
 {
     //
 	public function index(){
-		return view('homeCustomer');
+		return view('homePasien');
 	}
 
 	// public function simpanUser(Request $request){

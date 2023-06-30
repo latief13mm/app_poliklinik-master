@@ -15,8 +15,40 @@ return [
     |            "memcached", "redis", "array"
     |
     */
+    // 'session_lifetime' => env('SESSION_LIFETIME', 120),
+    //     'session_divider' => 'SESSION_DRIVER=file', // Nama pemisah untuk named session
+    //     'cookie' => env(
+    //         'SESSION_COOKIE',
+    //         str_slug(env('APP_NAME', 'laravel'), '_').'_session'
+    //     ),
 
     'driver' => env('SESSION_DRIVER', 'file'),
+
+    'connections' => [
+
+        'file' => [
+            'driver' => 'file',
+            'path' => storage_path('framework/sessions'),
+        ],
+    
+        'database' => [
+            'driver' => 'database',
+            'table' => 'sessions',
+            'connection' => 'your_database_connection',
+            'expire_on_close' => true,
+        ],
+    
+    ],
+    
+    'cookie' => [
+        'name' => 'your_cookie_prefix',
+        'path' => '/',
+        'domain' => env('SESSION_DOMAIN', null),
+        'secure' => env('SESSION_SECURE_COOKIE', false),
+        'http_only' => true,
+        'same_site' => 'lax',
+    ],
+
 
     /*
     |--------------------------------------------------------------------------

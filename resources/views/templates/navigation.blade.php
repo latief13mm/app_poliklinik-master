@@ -8,7 +8,7 @@
     }
 ?>
             <div class="navbar nav_title" style="border: 0;">
-              <a href="{{ url('/') }}" class="site_title"><i class="fa fa-plus-square"></i> <span>Airin Skin Clinik Customer</span></a>
+              <a href="{{ url('home') }}" class="site_title"><i class="fa fa-plus-square"></i> <span>Airin Skin Clinik Customer</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -32,7 +32,7 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="{{ url('/') }}"><i class="fa fa-home"></i> Home </a>
+                  <li><a href="{{ url('home') }}"><i class="fa fa-home"></i> Home </a>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Data Master <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -138,7 +138,7 @@
                     <li><a href="#" data-toggle="modal" data-target=".settingModal"> Setting</a></li>
                     
                     <li>
-                      <form action="{{ url('logout') }}" method="POST">
+                      <form action="{{ url('user/logout') }}" method="POST">
                         {{ csrf_field() }}
                         <button type="submit" class="badge bg-blue pull-right"><i class="fa fa-sign-out pull-right"></i> Log Out</a></button>
                       </form>
@@ -200,12 +200,11 @@
                         <div class="modal-body">
                           
                           <p>
-                            Website APP ini dibuat untuk memenuhi tugas project minggu-an.<br/>
+                           Aplikasi ini di buat untuk memenuhi tugas akhir UPI YAI.<br/>
                             <ul>
                               <li>Poliklinik Lost in LaravelHURT : v0.1</li>
                             </ul>
-                            <br/>
-                          ~Aris Hasan Ubaidillah
+                            <br/>s
                           </p>
 
                         </div>
