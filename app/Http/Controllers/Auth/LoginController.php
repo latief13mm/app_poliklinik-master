@@ -9,16 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
+  
 
     // use AuthenticatesUsers;
 
@@ -34,11 +25,11 @@ class LoginController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('guest:user')->except('logout');
-        $this->middleware('guest:pasien')->except('logout');
     }
 
     public function username(){
@@ -46,7 +37,11 @@ class LoginController extends Controller
     }
 
     public function showLoginForm(){
-        return view('interface/login', ['url' => 'user']);
+        return view('welcome');
+    }
+
+    public function showLoginFormAdmin(){
+        return view('interface/login');
     }
 
   
@@ -54,6 +49,8 @@ class LoginController extends Controller
     {
 
         if (Auth::guard('user')->attempt(['username' => $request->username, 'password' => $request->password], $request->get('remember'))) {
+            // Auth berhasil, tambahkan session 
+            session(['user' => true]);
 
             return redirect()->intended('home');
         }
@@ -63,11 +60,23 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
 
-    Auth::guard('user')->logout();
+        // if (Auth::guard('admin')->check()) {
+        //     Auth::guard('admin')->logout();
+        //     $request->session()->invalidate();
+        //     return redirect('login/admin');
+        // }
+    
+        // return redirect('welcome');
 
-    $request->session()->invalidate();
-
-    return redirect('login/admin');
+        if (Auth::guard('user')->check()) {
+            Auth::guard('user')->logout();
+        } elseif (Auth::guard('pasien')->check()) {
+            Auth::guard('pasien')->logout();
+        }
+        
+        $request->session()->invalidate();
+        
+        return redirect('login/admin');
     
     }
 

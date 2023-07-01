@@ -22,15 +22,23 @@ class DatabaseSeeder extends Seeder
         // $user->NIP = 'K0002';
         // $user->save();
 
+        // DB::table('login')->insert([
+        // 	'username' => 'latief123',
+        //     'password' => bcrypt('admin'),
+        //     'typeUser' => 'ADMIN',
+        // 	'NIP' => 'K0002',
+        //     'remember_token' => Str::random(60), // Menggunakan helper Str::random() untuk menghasilkan token acak
+        // ]);
+
         DB::table('pasien')->insert([
-            'NoPasien' => 'P0004',
-        	'namaPas' => 'Joni Jono',
+            'NoPasien' => 'P0006',
+        	'namaPas' => 'Marisa',
         	'almPas' => 'JL Siaga',
         	'telpPas' => '0812880',
         	'tglLahirPas' => '2023-06-27',
-            'jenisKelPas' => 'laki-laki',
+            'jenisKelPas' => 'perempuan',
         	'tglRegistrasi' => '2023-06-27',
-        	'username' => 'JoniJono',
+        	'username' => 'marisa123',
             'password' => bcrypt('admin'),
             'remember_token' => Str::random(60), // Menggunakan helper Str::random() untuk menghasilkan token acak
         ]);

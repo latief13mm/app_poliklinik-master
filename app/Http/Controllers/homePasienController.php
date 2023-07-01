@@ -11,19 +11,19 @@ class homePasienController extends Controller
 		return view('homePasien');
 	}
 
-	// public function simpanUser(Request $request){
-	// 	$input = $request->all();
+	public function simpanPasien(Request $request){
+		$input = $request->all();
 
 		
-	// 		$execute = \App\userModel::execute_user($input);
+			$execute = \App\userModel::execute_pasien($input);
 
-	// 		if($execute){
-	// 			echo "Berhasil mengubah user.";
-	// 		}else{
-	// 			echo "Gagal mengubah user.";
-	// 		}
+			if($execute){
+				echo "Berhasil mengubah user.";
+			}else{
+				echo "Gagal mengubah user.";
+			}
 		
 
-	// }
+	}
 
 }

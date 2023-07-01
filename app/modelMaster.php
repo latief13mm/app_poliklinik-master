@@ -34,6 +34,18 @@ class modelMaster extends Model
 		}
 		return $user;
 	}
+
+	static function getPasien(){
+		$id = AUTH::id();
+		$pasien = '';
+		$query = DB::table('pasien')
+				 ->where('NoPasien',$id)
+				 ->get();
+		foreach ($query->toArray() as $key => $value) {
+			$pasien = $value->NoPasien;
+		}
+		return $pasien;
+	}
     
     static function getDataPasien(){
     	$query = DB::table('pasien')
@@ -42,6 +54,18 @@ class modelMaster extends Model
 
     	return $query->toArray();
     }
+
+	static function getDataPasienById(){
+		$query = DB::table('pasien')
+		->selectRaw('*')
+		->where('NoPasien',AUTH::id())
+		->limit('1')
+		->get();
+
+    	return $query->toArray();
+    }
+
+	
 
     static function getPasienPendaftaranStatusByID($id){
     	date_default_timezone_set('Asia/Jakarta');
