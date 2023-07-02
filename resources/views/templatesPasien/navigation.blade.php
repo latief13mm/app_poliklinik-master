@@ -1,10 +1,6 @@
 <?php
-    $getUser = \App\userModel::getPasienById();
-
-    foreach ($getUser as $key => $value) {
-      $id = $value->NoPasien;
-      $namaPasien = $value->namaPas;
-    }
+    $username = Auth::user()->username;
+    $pasien = \App\userModel::getPasienById($username);
 ?>
             <div class="navbar nav_title" style="border: 0;">
               <a href="{{ url('/homePasien') }}" class="site_title"><i class="fa fa-plus-square"></i> <span>Airin Skin Clinic</span></a>
@@ -19,7 +15,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>{{ $namaPasien }}</h2>
+                <h2> {{ session('namaPasien') }}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -97,7 +93,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="{{ asset('Assets') }}/production/images/img.jpg" alt="">{{ $namaPasien }}
+                    <img src="{{ asset('Assets') }}/production/images/img.jpg" alt=""> {{ session('namaPasien') }}
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">

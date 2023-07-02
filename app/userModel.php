@@ -22,15 +22,14 @@ class userModel extends Model
 
     }
 
-	static function getPasienById(){
+	static function getPasienById($username){
 
-    	$query = DB::table('pasien')
-    		 ->selectRaw('pasien.*,pasien.namaPas')
-    		 ->where('NoPasien',AUTH::id())
-    		 ->get(1);
-
-    		 return $query->toArray();
-
+		$query = DB::table('pasien')
+        ->selectRaw('pasien.*, pasien.namaPas')
+        ->where('username', $username)
+        ->first();
+		
+    	return $query;
     }
 
     static function execute_user($input){
