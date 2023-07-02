@@ -1,9 +1,10 @@
 <?php
-    $getUser = \App\userModel::getPasienById();
+    $getPasien = \App\userModel::getPasienById();
 
-    foreach ($getUser as $key => $value) {
-      $id = $value->NoPasien;
+    foreach ($getPasien as $key => $value) {
+      $id = $value->noUser;
       $namaPasien = $value->namaPas;
+      $typeUser = $value->typeUser;
     }
 ?>
             <div class="navbar nav_title" style="border: 0;">
@@ -33,6 +34,8 @@
                 <ul class="nav side-menu">
                   <li><a href="{{ url('/homePasien') }}"><i class="fa fa-home"></i> Home </a>
                   </li>
+                  <?php if($typeUser == 'PASIEN'){
+                    ?>  
                   <li><a><i class="fa fa-user"></i> Profile <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ url('profile/profilePasien') }}">Edit Profile</a></li>
@@ -47,6 +50,8 @@
                       <li><a href="{{ url('booking/resep') }}">Resep</a></li>
                     </ul>
                   </li>
+                  <?php
+                } ?>
                 </ul>
               </div>
               <div class="menu_section">

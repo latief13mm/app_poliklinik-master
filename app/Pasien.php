@@ -9,9 +9,9 @@ class Pasien extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'pasien';
+    protected $table = 'login';
     protected $guard = 'pasien';
-    public $primaryKey = 'NoPasien';
+    public $primaryKey = 'noUser';
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +19,7 @@ class Pasien extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'password'
+        'username', 'password','typeUser'
     ];
 
     // public function getAuthPassword()
