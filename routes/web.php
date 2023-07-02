@@ -16,20 +16,33 @@
 
 // Route::auth();
 
-Route::get('/', function () {
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::middleware(['auth:user'])->group(function () {
+// });
+
+
+
+Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
-Route::get('login/admin', 'Auth\LoginController@showLoginForm');
+Route::get('login/admin', 'Auth\LoginController@showLoginFormAdmin');
 Route::post('login/adminPost', 'Auth\LoginController@loginAdmin');
-Route::post('user/logout', 'Auth\LoginController@logout')->name('logout');
+Route::post('user/logout', 'Auth\LoginController@logout');
 
 
 Route::get('login/pasien', 'loginPasienController@showLoginPasienForm');
 Route::post('login/pasienPost', 'loginPasienController@loginPasien');
-Route::post('pasien/logout', 'loginPasienController@logout')->name('logout');
+Route::post('pasien/logout', 'loginPasienController@logout');
+
+
+Route::get('register', 'registerPasienController@showRegisterForm');
+Route::post('registerPost', 'registerPasienController@registerPost');
 
 
 Route::middleware(['auth:user'])->group(function () {
@@ -152,8 +165,6 @@ Route::middleware(['auth:pasien'])->group(function () {
 	Route::get('homePasien','homePasienController@index');
 
 	Route::get('loginPasien','loginPasienController@showLoginCustomerForm');
-	Route::get('register', 'registerPasienController@showRegisterForm');
-	Route::post('registerPost', 'registerPasienController@registerPost');
 
 
 	Route::get('pendaftaranPasien/cetaknoUrut/{id}','transactionPasienController@noUrut_cetak_pasien');
@@ -169,9 +180,6 @@ Route::middleware(['auth:pasien'])->group(function () {
 	Route::get('profile/jenis_treatment','controllerMasterPasien@jenis_biaya');
 	Route::get('profile/jadwal_dokter','controllerMasterPasien@jadwal_praktek');
 	Route::get('profile/profilePasien','controllerMasterPasien@profilePasien');
-
-
-
 
 	Route::post('pendaftaranPasien/simpan','transactionPasienController@pendaftaran_simpan_pasien');
 	Route::get('ambilDataPendaftarPesien','transactionPasienController@cekPendaftarPasien');

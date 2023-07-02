@@ -34,14 +34,20 @@ class loginPasienController extends Controller
      *
      * @return void
      */
+
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('guest:pasien')->except('logout');
     }
 
+    public function showLoginForm(){
+        return view('welcome');
+    }
+
     public function showLoginPasienForm(){
-        return view('loginPasien', ['url' => 'pasien']);
+        return view('loginPasien');
     }
 
     public function username(){
@@ -52,6 +58,8 @@ class loginPasienController extends Controller
     {
 
         if (Auth::guard('pasien')->attempt(['username' => $request->username, 'password' => $request->password], $request->get('remember'))) {
+            // Auth berhasil, tambahkan session 
+            session(['pasien' => true]);
 
             return redirect()->intended('homePasien');
         }
@@ -60,12 +68,17 @@ class loginPasienController extends Controller
 
     public function logout(Request $request)
     {
+
+        if (Auth::guard('user')->check()) {
+            Auth::guard('user')->logout();
+        } elseif (Auth::guard('pasien')->check()) {
+            Auth::guard('pasien')->logout();
+        }
         
-    Auth::guard('pasien')->logout();
-
-    $request->session()->invalidate();
-
-    return redirect('login/pasien');
+        $request->session()->invalidate();
+        
+        return redirect('login/pasien');
+        
     }
 
 

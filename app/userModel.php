@@ -22,6 +22,17 @@ class userModel extends Model
 
     }
 
+	static function getPasienById(){
+
+    	$query = DB::table('pasien')
+    		 ->selectRaw('pasien.*,pasien.namaPas')
+    		 ->where('NoPasien',AUTH::id())
+    		 ->get(1);
+
+    		 return $query->toArray();
+
+    }
+
     static function execute_user($input){
     	try {
     		
@@ -32,6 +43,24 @@ class userModel extends Model
     				 	'password' => $input['password']
     				 ]);
 
+    		return true;
+    	} catch (Exception $e) {
+    		return false;
+    	}
+    }
+
+
+	static function execute_pasien($input){
+    	try {
+    		
+    		$query = DB::table('pasien')
+    				 ->where('NoPasien',$input['NoPasien'])
+    				 ->update([
+    				 	'username' => $input['username'],
+    				 	'password' => $input['password']
+    				 ]);
+
+					 dd($query);
     		return true;
     	} catch (Exception $e) {
     		return false;

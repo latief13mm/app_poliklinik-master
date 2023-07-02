@@ -111,12 +111,12 @@
                     <hr>
                     <form action="{{ url('pasien/edit') }}" method="POST" id="formEditPasien">
                           {{ csrf_field() }}
-                    <table id="dataPasien" class="table table-striped table-bordered">
+                    <table class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th colspan="9">
+                          {{-- <th colspan="9">
                             <button type="button" class="btn btn-success btn-s addPasien"><i class="fa fa-plus"></i></button> Tambah Pasien
-                          </th>
+                          </th> --}}
                         </tr>
                         
 

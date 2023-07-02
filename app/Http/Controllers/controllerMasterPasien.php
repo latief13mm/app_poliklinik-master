@@ -8,7 +8,7 @@ class controllerMasterPasien extends Controller
 {
     //
     public function pasien(){
-    	$data['Listpasien'] = \App\modelMaster::getDataPasien();
+    	$data['Listpasien'] = \App\modelMaster::getDataPasienById();
     	return view('masterPasien/pasien')->with($data);
     }
 

@@ -1,10 +1,9 @@
 <?php
-    $getUser = \App\userModel::getUserById();
+    $getUser = \App\userModel::getPasienById();
 
     foreach ($getUser as $key => $value) {
-      $id = $value->noUser;
-      $namaPegawai = $value->namaPeg;
-      $typeUser = $value->typeUser;
+      $id = $value->NoPasien;
+      $namaPasien = $value->namaPas;
     }
 ?>
             <div class="navbar nav_title" style="border: 0;">
@@ -20,8 +19,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                {{-- <h2>{{ $namaPegawai }}</h2> --}}
-                <h2>Marisa</h2>
+                <h2>{{ $namaPasien }}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -99,7 +97,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="{{ asset('Assets') }}/production/images/img.jpg" alt="">NamaPasien
+                    <img src="{{ asset('Assets') }}/production/images/img.jpg" alt="">{{ $namaPasien }}
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -133,7 +131,7 @@
                           
                           <form action="{{ url('simpanAkun') }}" method="POST" id="dataAkun">
                             {{ csrf_field() }}
-                            <input type="hidden" name="noUser" value="#">
+                            <input type="hidden" name="NoPasien" value="#">
                             <span>Username</span>
                             <input type="text" class="form-control" name="username" placeholder="Username baru" id="uname">
                             <br/>

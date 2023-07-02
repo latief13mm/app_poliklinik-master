@@ -24,32 +24,6 @@ return [
 
     'driver' => env('SESSION_DRIVER', 'file'),
 
-    'connections' => [
-
-        'file' => [
-            'driver' => 'file',
-            'path' => storage_path('framework/sessions'),
-        ],
-    
-        'database' => [
-            'driver' => 'database',
-            'table' => 'sessions',
-            'connection' => 'your_database_connection',
-            'expire_on_close' => true,
-        ],
-    
-    ],
-    
-    'cookie' => [
-        'name' => 'your_cookie_prefix',
-        'path' => '/',
-        'domain' => env('SESSION_DOMAIN', null),
-        'secure' => env('SESSION_SECURE_COOKIE', false),
-        'http_only' => true,
-        'same_site' => 'lax',
-    ],
-
-
     /*
     |--------------------------------------------------------------------------
     | Session Lifetime
@@ -102,7 +76,76 @@ return [
     |
     */
 
-    'connection' => null,
+    // 'connection' => null,
+    'connections' => [
+
+        'file' => [
+            'driver' => 'file',
+            'path' => storage_path('framework/sessions'),
+            'expire_on_close' => false,
+        ],
+    
+        'admin' => [
+            'driver' => 'file',
+            'lifetime' => 120,
+            'expire_on_close' => false,
+            'encrypt' => false,
+            'files' => storage_path('framework/sessions'),
+            'connection' => null,
+            'table' => 'sessions',
+            'store' => null,
+            'lottery' => [2, 100],
+            'cookie' => 'admin_session',
+            'path' => '/',
+            'domain' => null,
+            'secure' => false,
+        ],
+    
+        'pasien' => [
+            'driver' => 'file',
+            'lifetime' => 120,
+            'expire_on_close' => false,
+            'encrypt' => false,
+            'files' => storage_path('framework/sessions'),
+            'connection' => null,
+            'table' => 'sessions',
+            'store' => null,
+            'lottery' => [2, 100],
+            'cookie' => 'pasien_session',
+            'path' => '/',
+            'domain' => null,
+            'secure' => false,
+        ],
+    
+        'database' => [
+            'driver' => 'database',
+            'table' => 'sessions',
+            'connection' => null,
+            'store' => null,
+            'expire_on_close' => false,
+        ],
+    
+        'memcached' => [
+            'driver' => 'memcached',
+            'persistent_id' => null,
+            'sasl' => [
+                'username' => null,
+                'password' => null,
+            ],
+            'options' => [
+                // ...
+            ],
+            'servers' => [
+                [
+                    'host' => '127.0.0.1',
+                    'port' => 11211,
+                    'weight' => 100,
+                ],
+            ],
+        ],
+        
+    
+    ],
 
     /*
     |--------------------------------------------------------------------------
