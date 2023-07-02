@@ -22,26 +22,26 @@ class DatabaseSeeder extends Seeder
         // $user->NIP = 'K0002';
         // $user->save();
 
-        // DB::table('login')->insert([
-        // 	'username' => 'latief123',
-        //     'password' => bcrypt('admin'),
-        //     'typeUser' => 'ADMIN',
-        // 	'NIP' => 'K0002',
-        //     'remember_token' => Str::random(60), // Menggunakan helper Str::random() untuk menghasilkan token acak
-        // ]);
-
-        DB::table('pasien')->insert([
-            'NoPasien' => 'P0006',
-        	'namaPas' => 'Marisa',
-        	'almPas' => 'JL Siaga',
-        	'telpPas' => '0812880',
-        	'tglLahirPas' => '2023-06-27',
-            'jenisKelPas' => 'perempuan',
-        	'tglRegistrasi' => '2023-06-27',
-        	'username' => 'marisa123',
-            'password' => bcrypt('admin'),
+        DB::table('login')->insert([
+        	'username' => 'joni123',
+            'password' => bcrypt('pasien'),
+            'typeUser' => 'PASIEN',
+        	'NoPasien' => 'P0004',
             'remember_token' => Str::random(60), // Menggunakan helper Str::random() untuk menghasilkan token acak
         ]);
+
+        // DB::table('pasien')->insert([
+        //     'NoPasien' => 'P0006',
+        // 	'namaPas' => 'Marisa',
+        // 	'almPas' => 'JL Siaga',
+        // 	'telpPas' => '0812880',
+        // 	'tglLahirPas' => '2023-06-27',
+        //     'jenisKelPas' => 'perempuan',
+        // 	'tglRegistrasi' => '2023-06-27',
+        // 	'username' => 'marisa123',
+        //     'password' => bcrypt('admin'),
+        //     'remember_token' => Str::random(60), // Menggunakan helper Str::random() untuk menghasilkan token acak
+        // ]);
 
 
         // $this->call(Pasien::class);

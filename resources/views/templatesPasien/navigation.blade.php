@@ -1,6 +1,11 @@
 <?php
-    $username = Auth::user()->username;
-    $pasien = \App\userModel::getPasienById($username);
+    $getPasien = \App\userModel::getPasienById();
+
+    foreach ($getPasien as $key => $value) {
+      $id = $value->noUser;
+      $namaPasien = $value->namaPas;
+      $typeUser = $value->typeUser;
+    }
 ?>
             <div class="navbar nav_title" style="border: 0;">
               <a href="{{ url('/homePasien') }}" class="site_title"><i class="fa fa-plus-square"></i> <span>Airin Skin Clinic</span></a>
@@ -15,7 +20,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2> {{ session('namaPasien') }}</h2>
+                <h2>{{ $namaPasien }}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -29,6 +34,8 @@
                 <ul class="nav side-menu">
                   <li><a href="{{ url('/homePasien') }}"><i class="fa fa-home"></i> Home </a>
                   </li>
+                  <?php if($typeUser == 'PASIEN'){
+                    ?>  
                   <li><a><i class="fa fa-user"></i> Profile <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ url('profile/profilePasien') }}">Edit Profile</a></li>
@@ -43,6 +50,8 @@
                       <li><a href="{{ url('booking/resep') }}">Resep</a></li>
                     </ul>
                   </li>
+                  <?php
+                } ?>
                 </ul>
               </div>
               <div class="menu_section">
@@ -93,7 +102,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="{{ asset('Assets') }}/production/images/img.jpg" alt=""> {{ session('namaPasien') }}
+                    <img src="{{ asset('Assets') }}/production/images/img.jpg" alt="">{{ $namaPasien }}
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
