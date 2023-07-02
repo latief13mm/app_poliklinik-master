@@ -56,13 +56,22 @@ class modelMaster extends Model
     }
 
 	static function getDataPasienById(){
-		$query = DB::table('pasien')
-		->selectRaw('*')
-		->where('NoPasien',AUTH::id())
+		$query = DB::table('login')
+		->selectRaw('login.*,pasien.namaPas, pasien.almPas, pasien.telpPas, pasien.tglLahirPas, pasien.jenisKelPas, pasien.jenisKelPas, pasien.tglRegistrasi')
+		->where('noUser',AUTH::id())
+		->join('pasien','login.NoPasien','=','pasien.NoPasien')
 		->limit('1')
 		->get();
 
-    	return $query->toArray();
+		return $query->toArray();
+
+		// $query = DB::table('pasien')
+		// ->selectRaw('*')
+		// ->where('NoPasien',AUTH::id())
+		// ->limit('1')
+		// ->get();
+
+    	// return $query->toArray();
     }
 
 	
