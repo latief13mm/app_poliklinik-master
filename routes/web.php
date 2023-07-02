@@ -41,6 +41,10 @@ Route::post('login/pasienPost', 'loginPasienController@loginPasien');
 Route::post('pasien/logout', 'loginPasienController@logout');
 
 
+Route::get('register', 'registerPasienController@showRegisterForm');
+Route::post('registerPost', 'registerPasienController@registerPost');
+
+
 Route::middleware(['auth:user'])->group(function () {
 
 	Route::get('home','homeController@index');
@@ -161,8 +165,6 @@ Route::middleware(['auth:pasien'])->group(function () {
 	Route::get('homePasien','homePasienController@index');
 
 	Route::get('loginPasien','loginPasienController@showLoginCustomerForm');
-	Route::get('register', 'registerPasienController@showRegisterForm');
-	Route::post('registerPost', 'registerPasienController@registerPost');
 
 
 	Route::get('pendaftaranPasien/cetaknoUrut/{id}','transactionPasienController@noUrut_cetak_pasien');
