@@ -1,3 +1,15 @@
+<?php
+    $getPasien = \App\userModel::getPasienById();
+
+    foreach ($getPasien as $key => $value) {
+      $id = $value->NoPasien;
+      $namaPasien = $value->namaPas;
+      $alamatPasien = $value->almPas;
+      $telephonePasien = $value->telpPas;
+      $tglLahirPasien = $value->tglLahirPas;
+      $jenisKelaminPasien = $value->jenisKelPas;
+  }
+?>
 @extends('templates/header')
 @section('content')
 <div class="container body">
@@ -33,7 +45,7 @@
                     <div class="card" style="width: 50rem;">
                       <img class="img-circle profile_img" src="{{ asset('Assets') }}/production/images/img.jpg">
                       <div class="card-body" align="center">
-                        <h1 class="card-title">Marisa</h1>
+                        <h1 class="card-title">{{ $namaPasien }}</h1>
                         <a href="#" class="btn btn-primary">Ubah Foto Profile</a>
                       </div>
                     </div>
@@ -67,22 +79,22 @@
                   <center><i>Keterangan Customer</i></center>
                   <table class="table table-stripped">
                     <tr>
-                      <td>No Pasien : <b id="noPasienKet"></b></td>
+                      <td>No Pasien : <b id="noPasienKet">{{ $id }}</b></td>
                     </tr>
                     <tr>
-                      <td>Nama Pasien : <b id="naPasKet"></b></td>
+                      <td>Nama Pasien : <b id="naPasKet">{{ $namaPasien }}</b></td>
                     </tr>
                     <tr>
-                      <td>Alamat Pasien : <b id="alPasKet"></b></td>
+                      <td>Alamat Pasien : <b id="alPasKet">{{ $alamatPasien }}</b></td>
                     </tr>
                     <tr>
-                      <td>Telp Pasien : <b id="tePasKet"></b></td>
+                      <td>Telp Pasien : <b id="tePasKet">{{ $telephonePasien }}</b></td>
                     </tr>
                     <tr>
-                      <td>Tanggal Lahir Pasien : <b id="tglPasKet"></b></td>
+                      <td>Tanggal Lahir Pasien : <b id="tglPasKet">{{ $tglLahirPasien }}</b></td>
                     </tr>
                     <tr>
-                      <td>Jenis Kelamin Pasien : <b id="jkPasKet"></b></td>
+                      <td>Jenis Kelamin Pasien : <b id="jkPasKet">{{ $jenisKelaminPasien }}</b></td>
                     </tr>
                     <tr>
                       <td>&nbsp;</td>

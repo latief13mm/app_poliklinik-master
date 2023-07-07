@@ -65,13 +65,6 @@ class modelMaster extends Model
 
 		return $query->toArray();
 
-		// $query = DB::table('pasien')
-		// ->selectRaw('*')
-		// ->where('NoPasien',AUTH::id())
-		// ->limit('1')
-		// ->get();
-
-    	// return $query->toArray();
     }
 
 	

@@ -24,7 +24,7 @@ class userModel extends Model
 	static function getPasienById(){
 
 		$query = DB::table('login')
-		->selectRaw('login.*,pasien.namaPas')
+		->selectRaw('login.*,pasien.namaPas, pasien.almPas, pasien.telpPas, pasien.tglLahirPas, pasien.jenisKelPas, pasien.jenisKelPas, pasien.tglRegistrasi')
 		->where('noUser',AUTH::id())
 		->join('pasien','login.NoPasien','=','pasien.NoPasien')
 		->limit('1')
