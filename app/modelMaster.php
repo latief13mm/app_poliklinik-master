@@ -65,13 +65,6 @@ class modelMaster extends Model
 
 		return $query->toArray();
 
-		// $query = DB::table('pasien')
-		// ->selectRaw('*')
-		// ->where('NoPasien',AUTH::id())
-		// ->limit('1')
-		// ->get();
-
-    	// return $query->toArray();
     }
 
 	
@@ -288,6 +281,21 @@ class modelMaster extends Model
     			 	'jnsKelDokter' => $input['edit_jenisKelDokter'],
     			 	'telpDokter' => $input['edit_tel_dokter'],
     			 	'KodePoli' => $input['edit_poliDokter'],
+    			 ]);
+
+    	if($query) return true; else return false;
+    }
+
+
+	static function editProfile($input){
+    	$query = DB::table('pasien')
+    			 ->where('NoPasien',$input['edit_no_pasien'])
+    			 ->update([
+    			 	'namaPas' => $input['edit_nama_pasien'],
+    			 	'almPas' => $input['edit_alamat_pasien'],
+    			 	'telpPas' => $input['edit_tel_pasien'],
+    			 	'tglLahirPas' => $input['edit_tanggalLahirPasien'],
+    			 	'jenisKelPas' => $input['edit_jenisKelPasien'],
     			 ]);
 
     	if($query) return true; else return false;

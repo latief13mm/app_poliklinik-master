@@ -17,7 +17,7 @@ foreach ($dataNoUrut as $key => $value) {
 <body onload="window.print();">
 	<table border="1">
 		<tr>
-			<td><h3><center>POLIKLINIK CENTRAL</center></h3>
+			<td><h3><center>AIRIN SKIN CLINIC</center></h3>
 				<h5><center>Lead the rest of sick people</center></h5>
 			</td>
 		</tr>
