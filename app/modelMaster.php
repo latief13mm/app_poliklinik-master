@@ -286,6 +286,21 @@ class modelMaster extends Model
     	if($query) return true; else return false;
     }
 
+
+	static function editProfile($input){
+    	$query = DB::table('pasien')
+    			 ->where('NoPasien',$input['noPasienEdit'])
+    			 ->update([
+    			 	'namaPas' => $input['namaEdit'],
+    			 	'almPas' => $input['alamatEdit'],
+    			 	'telpPas' => $input['telpEdit'],
+    			 	'tglLahirPas' => $input['tglLahirEdit'],
+    			 	'jenisKelPas' => $input['jkEdit'],
+    			 ]);
+
+    	if($query) return true; else return false;
+    }
+
     static function deleteDokter($input){
     	$query = DB::table('dokter')
     			 ->where('KodeDokter',$input['delete_kodeDokter'])

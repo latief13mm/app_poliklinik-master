@@ -2367,3 +2367,72 @@
 
 	});
 </script>
+
+
+<script type="text/javascript">
+	// Profile CRUD
+	$(function(){
+
+		function data_profile_refresh(){
+			var url = '{{ url("pasien/ambil") }}';
+
+			$.get(url,function(res){
+				$('#showProfile').html(res);
+			});
+		}
+
+		function berihkan_form_dokter(){
+			$('#nama_pasien').val('');
+			$('#alamat_pasien').val('');
+			$('#telp_pasien').val('');
+			$('#tglLahir_pasien').val('');
+			$('#jenisKel_pasien').val('Laki-Laki');
+		}
+
+		$('#showProfile').on('click','.editProfile',function(){
+
+			var nopasien = $(this).closest('tr').find('td:eq(1)').text();
+			var nama = $(this).closest('tr').find('td:eq(2)').text();
+			var alamat = $(this).closest('tr').find('td:eq(3)').text();
+			var telp = $(this).closest('tr').find('td:eq(4)').text();
+			var tglLahir = $(this).closest('tr').find('td:eq(5)').text();
+			var jk = $(this).closest('tr').find('td:eq(6)').text();
+
+			$('#edit_no_pasien').val(nopasien);
+			$('#edit_nama_pasien').val(nama);
+			$('#edit_alamat_pasien').val(alamat);
+			$('#edit_tel_pasien').val(telp);
+			$('#edit_tanggalLahirPasien').val(tglLahir);
+			$('#edit_jenisKelPasien').val(jk);
+
+		});
+
+		$('#simpanEditanDokter').click(function(){
+			var url = '{{ url("profile/editProfile") }}';
+			var data = $('#formEditProfile').serializeArray();
+
+						$.post(url,data,function(res){
+						if(res == 'Berhasil Mengubah Data Profile'){
+							new PNotify({
+	                            title: 'Information',
+	                            text: res,
+	                            type: 'success',
+	                            styling: 'bootstrap3'
+	                        });
+							data_profile_refresh();
+						}else{
+							new PNotify({
+	                            title: 'Information',
+	                            text: res,
+	                            type: 'error',
+	                            styling: 'bootstrap3'
+	                        });
+						}
+					data_profile_refresh();
+			});
+
+		});
+
+	});
+	// END OF Profile CRUD
+</script>

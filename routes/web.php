@@ -180,6 +180,7 @@ Route::middleware(['auth:pasien'])->group(function () {
 	Route::get('profile/jenis_treatment','controllerMasterPasien@jenis_biaya');
 	Route::get('profile/jadwal_dokter','controllerMasterPasien@jadwal_praktek');
 	Route::get('profile/profilePasien','controllerMasterPasien@profilePasien');
+	Route::get('profile/editProfile','controllerMasterPasien@profileEdit');
 
 	Route::post('pendaftaranPasien/simpan','transactionPasienController@pendaftaran_simpan_pasien');
 	Route::get('ambilDataPendaftarPesien','transactionPasienController@cekPendaftarPasien');

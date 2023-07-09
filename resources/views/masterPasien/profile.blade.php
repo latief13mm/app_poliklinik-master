@@ -1,3 +1,12 @@
+@extends('templatesPasien/header')
+@section('content')
+<div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            
+            @include('templatesPasien/navigation')
+
 <?php
     $getPasien = \App\userModel::getPasienById();
 
@@ -10,14 +19,6 @@
       $jenisKelaminPasien = $value->jenisKelPas;
   }
 ?>
-@extends('templates/header')
-@section('content')
-<div class="container body">
-      <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            
-            @include('templatesPasien/navigation')
 
 
 <!-- page content -->
@@ -100,9 +101,75 @@
                       <td>&nbsp;</td>
                     </tr>
                   </table>
-                  <button class="btn btn-primary" type="submit">Ubah Data Profile</button>  
+                  <button class="btn btn-info btn-s editProfile" type="submit" data-toggle="modal" data-target=".modal_editProfile">Ubah Data Profile</button>  
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade modal_editProfile" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Edit Data Profile Pasien</h4>
+              </div>
+              <div class="modal-body">
+                <p>
+                  <form class="form-horizontal form-label-left" id="formEditProfile" action="{{ url('profile/editProfile') }}" method="POST" novalidate>
+                    {{ csrf_field() }}
+                    {{ method_field('PUT') }}
+                    <span class="section">Personal Info</span>
+                    <input type="hidden" name="edit_no_pasien" id="edit_no_pasien" value="{{ $id }}">
+                    <div class="item form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edit_nama_pasien">Nama Dokter <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input id="edit_nama_pasien" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="edit_nama_pasien" placeholder="Nama Pasien" required="required" type="text"  value="{{ $namaPasien }}">
+                      </div>
+                    </div>
+                    <div class="item form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edit_alamat_pasien">Alamat Pasien <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <textarea id="edit_alamat_pasien" required="required" name="edit_alamat_pasien" class="form-control col-md-7 col-xs-12" > {{ $alamatPasien }} </textarea>
+                      </div>
+                    </div>
+                    <div class="item form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edit_tel_pasien">Telephone Dokter<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="tel" id="edit_tel_pasien" name="edit_tel_pasien" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12" value="{{ $telephonePasien }}">
+                      </div>
+                    </div>
+                    <div class="item form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edit_tanggalLahirPasien">Tanggal Lahir Pasien<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="date" id="edit_tanggalLahirPasien" name="edit_tanggalLahirPasien" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12" value="{{ $tglLahirPasien }}">
+                      </div>
+                    </div>
+                    <div class="item form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edit_jenisKelPasien">Jenis Kelamin <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select id="edit_jenisKelPasien" name="edit_jenisKelPasien" required="required" class="form-control col-md-7 col-xs-12">
+                          <option value="">-</option>
+                          <option value="Laki-Laki" {{ $jenisKelaminPasien == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
+                          <option value="Perempuan" {{ $jenisKelaminPasien == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                        </select>
+                      </div>
+                    </div>                
+                  </form>
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="simpanEditanDokter" data-dismiss="modal">Save changes</button>
               </div>
             </div>
           </div>

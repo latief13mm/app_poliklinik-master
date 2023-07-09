@@ -57,10 +57,22 @@ class controllerMasterPasien extends Controller
     }
 
 	public function profilePasien(){
-    	// $data['listPemeriksaan'] = \App\modelTransaksi::getAllDataPemeriksaanJoin();
     	return view('masterPasien/profile');
     }
 
+
+	public function profileEdit(Request $request){
+    	$input = $request->all();
+
+    	$execute = \App\modelMaster::editProfile($input);
+
+    	if($execute){
+    		echo "Berhasil Mengubah Data Dokter";
+    	}else{
+    		echo "Gagal Mengubah Data Dokter";
+    	}
+
+    }
 
 
 }

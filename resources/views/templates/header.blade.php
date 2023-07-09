@@ -42,7 +42,7 @@
    
 
 
-   @include('templates/footer')
+   @include('templatesPasien/footer')
    
    @include('templates/js')
 
