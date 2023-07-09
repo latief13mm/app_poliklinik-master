@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class controllerMasterPasien extends Controller
 {
     //
-    public function pasien(){
-    	$data['Listpasien'] = \App\modelMaster::getDataPasienById();
-    	return view('masterPasien/pasien')->with($data);
+	
+	public function profilePasien(){
+    	return view('masterPasien/profile');
     }
 
     public function pasienSimpanDaftar(Request $request){
@@ -21,6 +21,25 @@ class controllerMasterPasien extends Controller
     		echo 'Berhasil Menyimpan Data dan Mendaftarkan Pasien.';
     	}else{
     		echo 'Gagal Menyimpan Data dan Mendaftarkan Pasien.';
+    	}
+
+    }
+
+	public function booking(){
+    	$data['Listpasien'] = \App\modelMaster::getDataPasienById();
+    	return view('masterPasien/pasien')->with($data);
+    }
+
+	public function profileUpdate(Request $request){
+		// dd($request->all());
+    	$input = $request->all();
+
+    	$execute = \App\modelMaster::editProfile($input);
+
+    	if($execute){
+    		echo "Berhasil Mengubah Data Dokter";
+    	}else{
+    		echo "Gagal Mengubah Data Dokter";
     	}
 
     }
@@ -56,23 +75,7 @@ class controllerMasterPasien extends Controller
     	return view('masterPasien/jadwal_praktek')->with($data);
     }
 
-	public function profilePasien(){
-    	return view('masterPasien/profile');
-    }
 
-
-	public function profileEdit(Request $request){
-    	$input = $request->all();
-
-    	$execute = \App\modelMaster::editProfile($input);
-
-    	if($execute){
-    		echo "Berhasil Mengubah Data Dokter";
-    	}else{
-    		echo "Gagal Mengubah Data Dokter";
-    	}
-
-    }
 
 
 }

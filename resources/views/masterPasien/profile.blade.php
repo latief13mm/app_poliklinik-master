@@ -101,22 +101,86 @@
                       <td>&nbsp;</td>
                     </tr>
                   </table>
-                  <button class="btn btn-info btn-s editProfile" type="submit" data-toggle="modal" data-target=".modal_editProfile">Ubah Data Profile</button>  
+                  <button type="button" class="btn btn-primary" data-nopasien="{{ $id }}" data-namapasien="{{ $namaPasien }}" data-alamatpasien="{{ $alamatPasien }}" data-telephonepasien="{{ $telephonePasien }}" data-tgllahirpasien="{{ $tglLahirPasien }}" data-jeniskelaminpasien="{{ $jenisKelaminPasien }}"  data-toggle="modal" data-target="#editProfile" >Edit Foto Profile</button>
+                  {{-- <button class="btn btn-info btn-s editProfile"  id="editProfile" type="submit" data-toggle="modal" data-target=".modal_editProfile">Ubah Data Profile</button>   --}}
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        
 
-        <div class="modal fade modal_editProfile" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="editProfileLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="editProfileLabel">New message</h4>
+              </div>
+              <div class="modal-body">
+                <form class="form-horizontal form-label-left" id="editProfileForm" action="{{ url('profile/updateProfile') }}" method="POST">
+                  {{ csrf_field() }}
+                  <span class="section">Personal Info</span>
+                  <input type="hidden" name="edit_no_pasien" id="edit_no_pasien">
+                  <div class="item form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edit_nama_pasien">Nama Pasien <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="edit_nama_pasien"  name="edit_nama_pasien" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2"  type="text">
+                    </div>
+                  </div>
+                  <div class="item form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edit_alamat_pasien">Alamat Pasien <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <textarea id="edit_alamat_pasien" name="edit_alamat_pasien" required="required" class="form-control col-md-7 col-xs-12" ></textarea>
+                    </div>
+                  </div>
+                  <div class="item form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edit_tel_pasien">Telephone Pasien<span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input type="tel" id="edit_tel_pasien" name="edit_tel_pasien" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
+                    </div>
+                  </div>
+                  <div class="item form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edit_tanggalLahirPasien">Tanggal Lahir Pasien<span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input type="date" id="edit_tanggalLahirPasien" name="edit_tanggalLahirPasien" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
+                    </div>
+                  </div>
+                  <div class="item form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edit_jenisKelPasien">Jenis Kelamin <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <select id="edit_jenisKelPasien" name="edit_jenisKelPasien" required="required" class="form-control col-md-7 col-xs-12">
+                        <option value="">-</option>
+                        <option value="Laki-Laki" >Laki-Laki</option>
+                        <option value="Perempuan" >Perempuan</option>
+                      </select>
+                    </div>
+                  </div>                
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveChangesBtn">save change</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        {{-- <div class="modal fade modal_editProfile" id="editProfile" role="dialog" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel">Edit Data Profile Pasien</h4>
+                <h4 class="modal-title" id="editProfile" >Edit Data Profile Pasien</h4>
               </div>
               <div class="modal-body">
                 <p>
@@ -169,11 +233,11 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="simpanEditanDokter" data-dismiss="modal">Save changes</button>
+                <button type="button" class="btn btn-primary" id="simpanEditanProfile" data-dismiss="modal">Save changes</button>
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
 @endsection
 
 

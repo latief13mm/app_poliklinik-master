@@ -289,13 +289,13 @@ class modelMaster extends Model
 
 	static function editProfile($input){
     	$query = DB::table('pasien')
-    			 ->where('NoPasien',$input['noPasienEdit'])
+    			 ->where('NoPasien',$input['edit_no_pasien'])
     			 ->update([
-    			 	'namaPas' => $input['namaEdit'],
-    			 	'almPas' => $input['alamatEdit'],
-    			 	'telpPas' => $input['telpEdit'],
-    			 	'tglLahirPas' => $input['tglLahirEdit'],
-    			 	'jenisKelPas' => $input['jkEdit'],
+    			 	'namaPas' => $input['edit_nama_pasien'],
+    			 	'almPas' => $input['edit_alamat_pasien'],
+    			 	'telpPas' => $input['edit_tel_pasien'],
+    			 	'tglLahirPas' => $input['edit_tanggalLahirPasien'],
+    			 	'jenisKelPas' => $input['edit_jenisKelPasien'],
     			 ]);
 
     	if($query) return true; else return false;

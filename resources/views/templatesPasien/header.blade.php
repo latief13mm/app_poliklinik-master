@@ -40,11 +40,9 @@
    
    @yield('content')
    
-
-
-   @include('templates/footer')
+   @include('templatesPasien/footer')
    
-   @include('templates/js')
+   @include('templatesPasien/js')
 
    
   

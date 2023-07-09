@@ -2369,70 +2369,115 @@
 </script>
 
 
-<script type="text/javascript">
+<script>
+	 $(document).ready(function() {
+	$('#editProfile').on('show.bs.modal', function (event) {
+			var button = $(event.relatedTarget) 
+			var edit_no_pasien = button.data('nopasien')
+			var edit_nama_pasien = button.data('namapasien')
+			var edit_alamat_pasien = button.data('alamatpasien')
+			var edit_tel_pasien = button.data('telephonepasien')
+			var edit_tanggalLahirPasien = button.data('tgllahirpasien')
+			var edit_jenisKelPasien = button.data('jeniskelaminpasien')
+			
+			var modal = $(this)
+			modal.find('.modal-body #edit_no_pasien').val(edit_no_pasien);
+			modal.find('.modal-body #edit_nama_pasien').val(edit_nama_pasien);
+			modal.find('.modal-body #edit_alamat_pasien').val(edit_alamat_pasien);
+			modal.find('.modal-body #edit_tel_pasien').val(edit_tel_pasien);
+			modal.find('.modal-body #edit_tanggalLahirPasien').val(edit_tanggalLahirPasien);
+			modal.find('.modal-body #edit_jenisKelPasien').val(edit_jenisKelPasien);
+		});
+
+		$('#saveChangesBtn').click(function() {
+			var form = $('#editProfileForm');
+			var url = form.attr('action');
+			var data = form.serialize();
+
+			$.ajax({
+				type: 'POST',
+				url: url,
+				data: data,
+				success: function(response) {
+				// Mengalihkan ke halaman profil setelah berhasil
+				window.location.href = '{{ url("profile/profilePasien") }}';
+				},
+				error: function(xhr, status, error) {
+				// Penanganan error jika diperlukan
+				}
+			});
+			});
+		});
+
+		// $('#saveChangesBtn').click(function() {
+		// 	$('#editProfileForm').submit();
+		// 	});
+		// });
+
 	// Profile CRUD
-	$(function(){
+	// $(function(){
 
-		function data_profile_refresh(){
-			var url = '{{ url("pasien/ambil") }}';
+		// function data_profile_refresh(){
+		// 	var url = '{{ url("pasien/ambil") }}';
 
-			$.get(url,function(res){
-				$('#showProfile').html(res);
-			});
-		}
+		// 	$.get(url,function(res){
+		// 		$('#showProfile').html(res);
+		// 	});
+		// }
 
-		function berihkan_form_dokter(){
-			$('#nama_pasien').val('');
-			$('#alamat_pasien').val('');
-			$('#telp_pasien').val('');
-			$('#tglLahir_pasien').val('');
-			$('#jenisKel_pasien').val('Laki-Laki');
-		}
+		// function berihkan_form_dokter(){
+		// 	$('#nama_pasien').val('');
+		// 	$('#alamat_pasien').val('');
+		// 	$('#telp_pasien').val('');
+		// 	$('#tglLahir_pasien').val('');
+		// 	$('#jenisKel_pasien').val('Laki-Laki');
+		// }
 
-		$('#showProfile').on('click','.editProfile',function(){
+	// 	console.log("buka model ini");
+	// 	$('#showProfile').on('click','.editProfile',function(){
 
-			var nopasien = $(this).closest('tr').find('td:eq(1)').text();
-			var nama = $(this).closest('tr').find('td:eq(2)').text();
-			var alamat = $(this).closest('tr').find('td:eq(3)').text();
-			var telp = $(this).closest('tr').find('td:eq(4)').text();
-			var tglLahir = $(this).closest('tr').find('td:eq(5)').text();
-			var jk = $(this).closest('tr').find('td:eq(6)').text();
+	// 		var nopasien = $(this).closest('tr').find('td:eq(1)').text();
+	// 		var nama = $(this).closest('tr').find('td:eq(2)').text();
+	// 		var alamat = $(this).closest('tr').find('td:eq(3)').text();
+	// 		var telp = $(this).closest('tr').find('td:eq(4)').text();
+	// 		var tglLahir = $(this).closest('tr').find('td:eq(5)').text();
+	// 		var jk = $(this).closest('tr').find('td:eq(6)').text();
 
-			$('#edit_no_pasien').val(nopasien);
-			$('#edit_nama_pasien').val(nama);
-			$('#edit_alamat_pasien').val(alamat);
-			$('#edit_tel_pasien').val(telp);
-			$('#edit_tanggalLahirPasien').val(tglLahir);
-			$('#edit_jenisKelPasien').val(jk);
+	// 		$('#edit_no_pasien').val(nopasien);
+	// 		$('#edit_nama_pasien').val(nama);
+	// 		$('#edit_alamat_pasien').val(alamat);
+	// 		$('#edit_tel_pasien').val(telp);
+	// 		$('#edit_tanggalLahirPasien').val(tglLahir);
+	// 		$('#edit_jenisKelPasien').val(jk);
 
-		});
+	// 	});
 
-		$('#simpanEditanDokter').click(function(){
-			var url = '{{ url("profile/editProfile") }}';
-			var data = $('#formEditProfile').serializeArray();
+	// 	$('#simpanEditanProfile').click(function(){
+	// 		var url = '{{ url("profile/editProfile") }}';
+	// 		var data = $('#formEditProfile').serializeArray();
 
-						$.post(url,data,function(res){
-						if(res == 'Berhasil Mengubah Data Profile'){
-							new PNotify({
-	                            title: 'Information',
-	                            text: res,
-	                            type: 'success',
-	                            styling: 'bootstrap3'
-	                        });
-							data_profile_refresh();
-						}else{
-							new PNotify({
-	                            title: 'Information',
-	                            text: res,
-	                            type: 'error',
-	                            styling: 'bootstrap3'
-	                        });
-						}
-					data_profile_refresh();
-			});
+	// 					$.post(url,data,function(res){
+	// 					if(res == 'Berhasil Mengubah Data Profile'){
+	// 						new PNotify({
+	//                             title: 'Information',
+	//                             text: res,
+	//                             type: 'success',
+	//                             styling: 'bootstrap3'
+	//                         });
+	// 						data_profile_refresh();
+	// 					}else{
+	// 						new PNotify({
+	//                             title: 'Information',
+	//                             text: res,
+	//                             type: 'error',
+	//                             styling: 'bootstrap3'
+	//                         });
+	// 					}
+	// 				data_profile_refresh();
+	// 		});
 
-		});
+	// 	});
 
-	});
+	// });
 	// END OF Profile CRUD
 </script>

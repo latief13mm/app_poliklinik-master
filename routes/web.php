@@ -170,8 +170,6 @@ Route::middleware(['auth:pasien'])->group(function () {
 	Route::get('pendaftaranPasien/cetaknoUrut/{id}','transactionPasienController@noUrut_cetak_pasien');
 
 	// BOOKING CUSTOMER
-	
-	Route::get('booking/bookingNow','controllerMasterPasien@pasien');
 	Route::get('booking/bookingDokter','transactionPasienController@pendaftaran_pasien');
 	Route::get('booking/resep','transactionPasienController@resepPasien');
 
@@ -179,8 +177,13 @@ Route::middleware(['auth:pasien'])->group(function () {
 	//PROFILE Customer
 	Route::get('profile/jenis_treatment','controllerMasterPasien@jenis_biaya');
 	Route::get('profile/jadwal_dokter','controllerMasterPasien@jadwal_praktek');
+
 	Route::get('profile/profilePasien','controllerMasterPasien@profilePasien');
 	Route::get('profile/editProfile','controllerMasterPasien@profileEdit');
+	Route::post('profile/updateProfile','controllerMasterPasien@profileUpdate');
+
+	Route::get('booking/bookingNow','controllerMasterPasien@booking');
+
 
 	Route::post('pendaftaranPasien/simpan','transactionPasienController@pendaftaran_simpan_pasien');
 	Route::get('ambilDataPendaftarPesien','transactionPasienController@cekPendaftarPasien');
