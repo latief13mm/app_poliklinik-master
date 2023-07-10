@@ -40,7 +40,7 @@
                     <ul class="nav child_menu">
                       <li><a href="{{ url('profile/profilePasien') }}">Edit Profile</a></li>
                       <li><a href="{{ url('profile/jenis_treatment') }}">Jenis Perawatan</a></li>
-                      <li><a href="{{ url('profile/jadwal_dokter') }}">Jadwal Dokter</a></li>
+                      <li><a href="{{ url('profile/jadwalOperasional') }}">Jadwal Operasional</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-book"></i>Booking<span class="fa fa-chevron-down"></span></a>

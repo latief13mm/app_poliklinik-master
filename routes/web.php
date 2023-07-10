@@ -176,7 +176,7 @@ Route::middleware(['auth:pasien'])->group(function () {
 
 	//PROFILE Customer
 	Route::get('profile/jenis_treatment','controllerMasterPasien@jenis_biaya');
-	Route::get('profile/jadwal_dokter','controllerMasterPasien@jadwal_praktek');
+	Route::get('profile/jadwalOperasional','controllerMasterPasien@jadwal_praktek');
 
 	Route::get('profile/profilePasien','controllerMasterPasien@profilePasien');
 	Route::get('profile/editProfile','controllerMasterPasien@profileEdit');

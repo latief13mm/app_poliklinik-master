@@ -49,16 +49,12 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <p class="text-muted font-13 m-b-30" id="keteranganDataJenisBiaya">
-                      Untuk menambah data, tekan tanda <i class="fa fa-plus"></i> dibawah.
-                    </p>
-                    
                     <table class="table table-bordered" hidden="true" id="tableAddJenisBiaya">
 
                       <thead>
                         <tr>
                           <th></th>
-                          <th>Nama Jenis Biaya</th>
+                          <th>Nama Jenis Perawatan</th>
                           <th>Tarif</th>
                         </tr>
                       </thead>
@@ -85,17 +81,15 @@
                           {{ csrf_field() }}
                     <table id="dataJenisBiaya" class="table table-striped table-bordered">
                       <thead>
-                        <tr>
+                        {{-- <tr>
                           <th colspan="9">
                             <button type="button" class="btn btn-success btn-s addJenisBiaya"><i class="fa fa-plus"></i></button> Tambah JenisBiaya
                           </th>
-                        </tr>
+                        </tr> --}}
                         
 
                         <tr>
-                          <th class="holderToolJenisBiaya"></th>
-                          <th>ID Jenis Biaya</th>
-                          <th>Nama Jenis Biaya</th>
+                          <th>Nama Jenis Perawatan</th>
                           <th>Tarif</th>
                         </tr>
                         
@@ -107,10 +101,6 @@
                             foreach ($Listjenisbiaya as $key => $value) {
                               ?>
                                 <tr>
-                                  <td style="width: 100px;" class="toolJenisBiaya">
-                                    <button type="button" class="btn btn-info btn-s editJenisBiaya"><i class="fa fa-edit"></i></button><button type="button" class="btn btn-danger btn-s deleteJenisBiaya"><i class="fa fa-trash"></i></button>
-                                  </td>
-                                  <td>{{ $value->IDJenisBiaya }}</td>
                                   <td>{{ $value->namaBiaya }}</td>
                                   <td>{{ $value->tarif }}</td>
                                 </tr>
