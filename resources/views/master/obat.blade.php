@@ -25,7 +25,7 @@
                   <div class="col-md-12">
                     <div class="x_panel">
                       <div class="x_title">
-                        <h2>Obat</h2>
+                        <h2>Product</h2>
                         <ul class="nav navbar-right panel_toolbox">
                           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                           </li>
@@ -50,21 +50,21 @@
 
                           <ul class="stats-overview">
                             <li>
-                              <span class="name"> Jumlah Obat Yang Dimiliki </span>
+                              <span class="name"> Jumlah Product Yang Dimiliki </span>
                               <span class="value text-success"> <?php
                                 $takeJumlah = \App\modelMaster::getJumlahObat();
                                 echo $takeJumlah;
                               ?> </span>
                             </li>
                             <li>
-                              <span class="name"> Jumlah Obat Yang Harga > 50000 </span>
+                              <span class="name"> Jumlah Product Yang Harga > 50000 </span>
                               <span class="value text-success"> <?php
                                 $takeJumlah2 = \App\modelMaster::getJumlahObat50k();
                                 echo $takeJumlah2;
                               ?> </span>
                             </li>
                             <li class="hidden-phone">
-                              <span class="name"> Jumlah Obat Yang Harga < 10000 </span>
+                              <span class="name"> Jumlah Product Yang Harga < 10000 </span>
                               <span class="value text-success"> <?php
                                 $takeJumlah3 = \App\modelMaster::getJumlahObat10kMinus();
                                 echo $takeJumlah3;
@@ -126,14 +126,14 @@
                         <form class="form-horizontal form-label-left" action="{{ url('obat/simpan') }}" method="POST" id="formInputObat">
                           {{ csrf_field() }}
                           <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_obat">Nama Obat <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_obat">Nama Product <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                               <input type="text" id="nama_obat" name="nama_obat" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="merk_obat">Merk Obat <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="merk_obat">Merk Product <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                               <input type="text" id="merk_obat" name="merk_obat" required="required" class="form-control col-md-7 col-xs-12">
@@ -243,7 +243,7 @@
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>List Record Data Obat</h2>
+                    <h2>List Record Data Product</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -263,15 +263,15 @@
                   </div>
                   <div class="x_content">
 
-                    <p>List Data Data Obat.</p>
+                    <p>List Data Data Product.</p>
                   <form action="{{ url('obat/edit') }}" method="POST" id="formEditObat" hidden="true">
                     {{ csrf_field() }}
                     <table id="khususEditObat" class="table table-bordered">
                       <thead>
                         <tr style="text-align: center;">
-                          <th style="width: 17%" hidden="true">Kode Obat</th>
-                          <th style="width: 17%">Nama Obat</th>
-                          <th style="width: 17%">Merk Obat</th>
+                          <th style="width: 17%" hidden="true">Kode Product</th>
+                          <th style="width: 17%">Nama Product</th>
+                          <th style="width: 17%">Merk Product</th>
                           <th style="width: 17%">Satuan</th>
                           <th style="width: 16%">Harga Jual</th>
                           <th style="width: 18%">Tools</th>
@@ -297,7 +297,7 @@
                     <table id="khususDeleteObat" class="table table-bordered">
                       <thead>
                         <tr style="text-align: center;">
-                          <th colspan="2"><i class="fa fa-question-circle"></i> Yakin menghapus data Obat dengan kode <b><i style="color: red;" id="kodeDeleteObat"></i></b> ?</th>
+                          <th colspan="2"><i class="fa fa-question-circle"></i> Yakin menghapus data Product dengan kode <b><i style="color: red;" id="kodeDeleteObat"></i></b> ?</th>
                           
                         </tr>
                       </thead>
@@ -317,9 +317,9 @@
                       <thead>
                         <tr>
                           <th style="width: 1%">No. </th>
-                          <th style="width: 10%">Kode Obat</th>
-                          <th style="width: 12%">Nama Obat</th>
-                          <th style="width: 10%">Merk Obat</th>
+                          <th style="width: 10%">Kode Product</th>
+                          <th style="width: 12%">Nama Product</th>
+                          <th style="width: 10%">Merk Product</th>
                           <th style="width: 10%">Satuan</th>
                           <th style="width: 10%">Harga Jual</th>
                           <th style="width: 15%">Progress</th>

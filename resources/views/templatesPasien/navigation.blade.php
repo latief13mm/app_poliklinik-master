@@ -39,7 +39,7 @@
                   <li><a><i class="fa fa-user"></i> Profile <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ url('profile/profilePasien') }}">Edit Profile</a></li>
-                      <li><a href="{{ url('profile/jenis_treatment') }}">Jenis Treatment</a></li>
+                      <li><a href="{{ url('profile/jenis_treatment') }}">Jenis Perawatan</a></li>
                       <li><a href="{{ url('profile/jadwal_dokter') }}">Jadwal Dokter</a></li>
                     </ul>
                   </li>
@@ -173,7 +173,7 @@
                           <p>
                             Aplikasi ini di buat untuk memenuhi tugas akhir UPI YAI.<br/>
                             <ul>
-                              <li>Poliklinik Lost in LaravelHURT : v0.1</li>
+                              <li>Airin Skin Clinic : v0.1</li>
                             </ul>
                             <br/>
                           ~Tugas Akhir UPI YAI

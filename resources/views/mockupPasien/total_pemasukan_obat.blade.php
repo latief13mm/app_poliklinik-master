@@ -22,8 +22,8 @@
                           <td>No Resep</td>
                           <td>No Pasien</td>
                           <td>Nama Pasien</td>
-                          <td>Nama Obat</td>
-                          <td>Jumlah Obat</td>
+                          <td>Nama Product</td>
+                          <td>Jumlah Product</td>
                           <td>Harga Jual</td>
                           <td>Total</td>
                         </tr>

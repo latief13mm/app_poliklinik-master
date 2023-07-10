@@ -25,7 +25,7 @@
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Pemasukan Dari Pembelian Obat</h2>
+                    <h2>Pemasukan Dari Pembelian Product</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -62,8 +62,8 @@
                           <td>No Resep</td>
                           <td>No Pasien</td>
                           <td>Nama Pasien</td>
-                          <td>Nama Obat</td>
-                          <td>Jumlah Obat</td>
+                          <td>Nama Product</td>
+                          <td>Jumlah Product</td>
                           <td>Harga Jual</td>
                           <td>Total</td>
                         </tr>
@@ -92,16 +92,12 @@
                         </tr>
                       </tbody>
                     </table>
-                    
-                            
-				
-              
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      </div>
-      </div>
+          </div>
+          </div>
        
 
 

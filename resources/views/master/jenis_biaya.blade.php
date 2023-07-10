@@ -30,7 +30,7 @@
 
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Jenis Biaya <small>Data</small></h2>
+                    <h2>Jenis Perawatan <small>Data</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -58,7 +58,7 @@
                       <thead>
                         <tr>
                           <th></th>
-                          <th>Nama Jenis Biaya</th>
+                          <th>Nama Jenis Perawatan</th>
                           <th>Tarif</th>
                         </tr>
                       </thead>
@@ -87,15 +87,15 @@
                       <thead>
                         <tr>
                           <th colspan="9">
-                            <button type="button" class="btn btn-success btn-s addJenisBiaya"><i class="fa fa-plus"></i></button> Tambah JenisBiaya
+                            <button type="button" class="btn btn-success btn-s addJenisBiaya"><i class="fa fa-plus"></i></button> Tambah Perawatan
                           </th>
                         </tr>
                         
 
                         <tr>
                           <th class="holderToolJenisBiaya"></th>
-                          <th>ID Jenis Biaya</th>
-                          <th>Nama Jenis Biaya</th>
+                          <th>ID Jenis Perawatan</th>
+                          <th>Nama Jenis Perawatan</th>
                           <th>Tarif</th>
                         </tr>
                         

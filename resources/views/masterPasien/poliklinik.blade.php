@@ -30,7 +30,7 @@
 
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Poliklinik <small>Data</small></h2>
+                    <h2>Clinic Skin Airin <small>Data</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -58,7 +58,7 @@
                       <thead>
                         <tr>
                           <th></th>
-                          <th>Nama Poliklinik</th>
+                          <th>Nama Clinic</th>
                           <th>Alamat</th>
                         </tr>
                       </thead>
@@ -87,15 +87,15 @@
                       <thead>
                         <tr>
                           <th colspan="9">
-                            <button type="button" class="btn btn-success btn-s addPoliklinik"><i class="fa fa-plus"></i></button> Tambah Poliklinik
+                            <button type="button" class="btn btn-success btn-s addPoliklinik"><i class="fa fa-plus"></i></button> Tambah Clinic
                           </th>
                         </tr>
                         
 
                         <tr>
                           <th class="holderToolPoliklinik"></th>
-                          <th>ID Poliklinik</th>
-                          <th>Nama Poliklinik</th>
+                          <th>ID Clinic</th>
+                          <th>Nama Clinic</th>
                           <th>Alamat</th>
                         </tr>
                         

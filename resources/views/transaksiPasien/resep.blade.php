@@ -200,7 +200,7 @@
                       <td>Total Bayar Pemeriksaan : Rp. <b id="TotalBayarPemeriksaan"></b></td>
                     </tr>
                     <tr>
-                      <td>Total Bayar Obat : Rp. <b id="TotalBayarObat"></b></td>
+                      <td>Total Bayar Product : Rp. <b id="TotalBayarObat"></b></td>
                     </tr>
                     <tr>
                       <td>&nbsp;</td>
