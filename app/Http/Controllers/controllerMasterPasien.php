@@ -71,7 +71,8 @@ class controllerMasterPasien extends Controller
     }
 
 	public function jadwal_praktek(){
-    	$data['Listjadwalpraktek'] = \App\modelMaster::getAllDataJadwal();
+    	// $data['Listjadwalpraktek'] = \App\modelMaster::getAllDataJadwal();
+		$data['dataPraktek'] = \App\laporanModel::getDataJadwalPraktek();
     	return view('masterPasien/jadwal_praktek')->with($data);
     }
 
