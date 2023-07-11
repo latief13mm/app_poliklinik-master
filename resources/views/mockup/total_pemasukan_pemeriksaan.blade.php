@@ -9,7 +9,7 @@
 <body onload="window.print();">
 	<table border="1">
 		<tr>
-			<td colspan="6"><h3><center>POLIKLINIK CENTRAL</center></h3>
+			<td colspan="6"><h3><center>Airin Skin Clinic</center></h3>
 				<h5><center>Lead the rest of sick people</center></h5>
 			</td>
 		</tr>

@@ -4,12 +4,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Pemasukan Obat</title>
+	<title>Pemasukan Product</title>
 </head>
 <body onload="window.print();">
 	<table border="1">
 		<tr>
-			<td colspan="7"><h3><center>POLIKLINIK CENTRAL</center></h3>
+			<td colspan="7"><h3><center>Airin Skin Clinic</center></h3>
 				<h5><center>Lead the rest of sick people</center></h5>
 			</td>
 		</tr>
@@ -22,8 +22,8 @@
                           <td>No Resep</td>
                           <td>No Pasien</td>
                           <td>Nama Pasien</td>
-                          <td>Nama Obat</td>
-                          <td>Jumlah Obat</td>
+                          <td>Nama Product</td>
+                          <td>Jumlah Product</td>
                           <td>Harga Jual</td>
                           <td>Total</td>
                         </tr>
@@ -54,7 +54,7 @@
 			<td colspan="7">&nbsp;</td>
 		</tr>
 		<tr>
-			<td colspan="7"><center><small>Pemasukan Dari Penjualan Obat</small></center></td>
+			<td colspan="7"><center><small>Pemasukan Dari Penjualan Product</small></center></td>
 		</tr>
 	</table>
 </body>

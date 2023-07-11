@@ -10,6 +10,7 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $table = 'login';
+    protected $guard = 'user';
     public $primaryKey = 'noUser';
 
     /**

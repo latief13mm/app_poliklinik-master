@@ -133,7 +133,7 @@
                             <span class="step_no">2</span>
                             <span class="step_descr">
                                               Step 2<br />
-                                              <small>Step 2 Tentukan Jenis Biaya</small>
+                                              <small>Step 2 Tentukan Jenis Perawatan</small>
                                           </span>
                           </a>
                         </li>
@@ -196,13 +196,13 @@
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Berat Badan <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Kelembaban Kulit<span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                               <div class="input-group">
                             <input type="number" min="0" name="berat_badan" id="berat_badan" class="form-control" placeholder="Berat Badan">
                             <span class="input-group-btn">
-                                              <i class="btn btn-primary">KG</i>
+                                              <i class="btn btn-primary">pH</i>
                                           </span>
                           </div>
                             </div>

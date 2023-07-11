@@ -11,10 +11,43 @@
 |
 */
 
-Route::auth();
+// Route::group(['middleware' => 'auth'],function(){
+// });
 
-Route::group(['middleware' => 'auth'],function(){
-	Route::get('/','homeController@index');
+// Route::auth();
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::middleware(['auth:user'])->group(function () {
+// });
+
+
+
+Route::get('/welcome', function () {
+    return view('welcome');
+})->name('welcome');
+
+Auth::routes();
+
+Route::get('login/admin', 'Auth\LoginController@showLoginFormAdmin');
+Route::post('login/adminPost', 'Auth\LoginController@loginAdmin');
+Route::post('user/logout', 'Auth\LoginController@logout');
+
+
+Route::get('login/pasien', 'loginPasienController@showLoginPasienForm');
+Route::post('login/pasienPost', 'loginPasienController@loginPasien');
+Route::post('pasien/logout', 'loginPasienController@logout');
+
+
+Route::get('register', 'registerPasienController@showRegisterForm');
+Route::post('registerPost', 'registerPasienController@registerPost');
+
+
+Route::middleware(['auth:user'])->group(function () {
+
+	Route::get('home','homeController@index');
 	
 	Route::get('master/pasien','controllerMaster@pasien');
 	Route::post('pasien/simpan','controllerMaster@pasienSimpan');
@@ -124,5 +157,41 @@ Route::group(['middleware' => 'auth'],function(){
 
 	Route::post('simpanAkun','homeController@simpanUser');
 
+});
+
+
+Route::middleware(['auth:pasien'])->group(function () {
+
+	Route::get('homePasien','homePasienController@index');
+
+	Route::get('loginPasien','loginPasienController@showLoginCustomerForm');
+
+
+	Route::get('pendaftaranPasien/cetaknoUrut/{id}','transactionPasienController@noUrut_cetak_pasien');
+
+	// BOOKING CUSTOMER
+	Route::get('booking/bookingDokter','transactionPasienController@pendaftaran_pasien');
+	Route::get('booking/resep','transactionPasienController@resepPasien');
+
+
+	//PROFILE Customer
+	Route::get('profile/jenis_treatment','controllerMasterPasien@jenis_biaya');
+	Route::get('profile/jadwalOperasional','controllerMasterPasien@jadwal_praktek');
+
+	Route::get('profile/profilePasien','controllerMasterPasien@profilePasien');
+	Route::get('profile/editProfile','controllerMasterPasien@profileEdit');
+	Route::post('profile/updateProfile','controllerMasterPasien@profileUpdate');
+
+	Route::get('booking/bookingNow','controllerMasterPasien@booking');
+
+
+	Route::post('pendaftaranPasien/simpan','transactionPasienController@pendaftaran_simpan_pasien');
+	Route::get('ambilDataPendaftarPesien','transactionPasienController@cekPendaftarPasien');
+	Route::get('pemeriksaanPasien/cetak/{id}','transactionPasienController@cetakPemeriksaanPasien');
+
+
+	Route::post('pasien/simpanDaftar','controllerMasterPasien@pasienSimpanDaftar');
+	Route::get('pasien/cekDaftar/{id}','controllerMasterPasien@cekPasienDaftar');
+	Route::get('pasien/daftarkanNow/{id}','controllerMasterPasien@daftarkanPasienNow');
 
 });

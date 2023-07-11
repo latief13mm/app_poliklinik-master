@@ -34,6 +34,18 @@ class modelMaster extends Model
 		}
 		return $user;
 	}
+
+	static function getPasien(){
+		$id = AUTH::id();
+		$pasien = '';
+		$query = DB::table('pasien')
+				 ->where('NoPasien',$id)
+				 ->get();
+		foreach ($query->toArray() as $key => $value) {
+			$pasien = $value->NoPasien;
+		}
+		return $pasien;
+	}
     
     static function getDataPasien(){
     	$query = DB::table('pasien')
@@ -42,6 +54,20 @@ class modelMaster extends Model
 
     	return $query->toArray();
     }
+
+	static function getDataPasienById(){
+		$query = DB::table('login')
+		->selectRaw('login.*,pasien.namaPas, pasien.almPas, pasien.telpPas, pasien.tglLahirPas, pasien.jenisKelPas, pasien.jenisKelPas, pasien.tglRegistrasi')
+		->where('noUser',AUTH::id())
+		->join('pasien','login.NoPasien','=','pasien.NoPasien')
+		->limit('1')
+		->get();
+
+		return $query->toArray();
+
+    }
+
+	
 
     static function getPasienPendaftaranStatusByID($id){
     	date_default_timezone_set('Asia/Jakarta');
@@ -255,6 +281,21 @@ class modelMaster extends Model
     			 	'jnsKelDokter' => $input['edit_jenisKelDokter'],
     			 	'telpDokter' => $input['edit_tel_dokter'],
     			 	'KodePoli' => $input['edit_poliDokter'],
+    			 ]);
+
+    	if($query) return true; else return false;
+    }
+
+
+	static function editProfile($input){
+    	$query = DB::table('pasien')
+    			 ->where('NoPasien',$input['edit_no_pasien'])
+    			 ->update([
+    			 	'namaPas' => $input['edit_nama_pasien'],
+    			 	'almPas' => $input['edit_alamat_pasien'],
+    			 	'telpPas' => $input['edit_tel_pasien'],
+    			 	'tglLahirPas' => $input['edit_tanggalLahirPasien'],
+    			 	'jenisKelPas' => $input['edit_jenisKelPasien'],
     			 ]);
 
     	if($query) return true; else return false;

@@ -14,7 +14,7 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-          <center><h3>App.Poliklinik</h3></center>  
+          <center><h3>Halaman Admin</h3></center>  
         </div>
         <!-- /page content -->
 

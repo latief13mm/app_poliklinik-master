@@ -34,11 +34,24 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\EncryptCookies::class,
         ],
 
         'api' => [
             'throttle:60,1',
             'bindings',
+        ],
+
+        'admin' => [
+            \Illuminate\Session\Middleware\StartSession::class,
+            'admin_session',
+            // ...
+        ],
+    
+        'pasien' => [
+            \Illuminate\Session\Middleware\StartSession::class,
+            'pasien_session',
+            // ...
         ],
     ];
 
@@ -56,5 +69,9 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'user_session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
+        'pasien_session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
+        'user' => \App\Http\Middleware\RedirectIfNotAdmin::class,
+        'pasien' => \App\Http\Middleware\RedirectIfNotPasien::class,
     ];
 }

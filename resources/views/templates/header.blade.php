@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>Poliklinik | Kha'zix</title>
+    <title>Airin Skin Clinic</title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('Assets') }}/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +42,7 @@
    
 
 
-   @include('templates/footer')
+   @include('templatesPasien/footer')
    
    @include('templates/js')
 

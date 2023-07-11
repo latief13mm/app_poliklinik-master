@@ -19,10 +19,39 @@ class userModel extends Model
     		 ->get();
 
     		 return $query->toArray();
+    }
+
+	static function getPasienById(){
+
+		$query = DB::table('login')
+		->selectRaw('login.*,pasien.namaPas, pasien.almPas, pasien.telpPas, pasien.tglLahirPas, pasien.jenisKelPas, pasien.jenisKelPas, pasien.tglRegistrasi')
+		->where('noUser',AUTH::id())
+		->join('pasien','login.NoPasien','=','pasien.NoPasien')
+		->limit('1')
+		->get();
+
+		return $query->toArray();
 
     }
 
     static function execute_user($input){
+    	try {
+    		
+    		$query = DB::table('login')
+    				 ->where('noUser',$input['noUser'])
+    				 ->update([
+    				 	'username' => $input['username'],
+    				 	'password' => $input['password']
+    				 ]);
+
+    		return true;
+    	} catch (Exception $e) {
+    		return false;
+    	}
+    }
+
+
+	static function execute_pasien($input){
     	try {
     		
     		$query = DB::table('login')

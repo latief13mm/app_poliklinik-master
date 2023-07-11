@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Poliklinik! | Login</title>
+    <title>Airin Skin Clinik Admin | Login</title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('Assets') }}/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,9 +31,9 @@
         <div class="animate form login_form">
           <section class="login_content">
             @include('tooltips/tooltips')
-            <form action="{{ url('login') }}" method="POST">
+            <form action="{{ url('login/adminPost') }}" method="POST">
               {{ csrf_field() }}
-              <h1>Login Form</h1>
+              <h1>Login Form Admin</h1>
               <div>
                 <input type="text" class="form-control" name="username" placeholder="Username" />
               </div>
@@ -46,6 +46,7 @@
                <div>
                  <input type="checkbox" name="remember" /> Remember Me
                 <input type="submit" value="Sign In" class="btn btn-default submit">
+                <input type="submit" value="Register" class="btn btn-default submit">
                </div>
               
               
@@ -59,8 +60,8 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-plus-square"></i> Poliklinik Central </h1>
-                  <p>©2018 All Rights Reserved. Poliklinik Central. Privacy and Terms</p>
+                  <h1><i class="fa fa-plus-square"></i> Airin Skin Clinik</h1>
+                  <p>©2023 All Rights Reserved. Airin Skin Clinik. Privacy and Terms</p>
                 </div>
               </div>
             </form>
